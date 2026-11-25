@@ -59,6 +59,7 @@ header.solid .nav{height:76px}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
 .slide.on{opacity:1}
 .slide img,.slide video{width:100%;height:100%;object-fit:cover}
+.slide picture{display:block;width:100%;height:100%}
 .slide.on img{animation:zoom 9s ease-out both}
 @keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1.02)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,11,10,.88),rgba(11,11,10,.45) 50%,rgba(11,11,10,.15)),linear-gradient(0deg,rgba(11,11,10,.9),rgba(11,11,10,0) 45%)}
@@ -83,7 +84,7 @@ header.solid .nav{height:76px}
 .mani .big{font:400 clamp(30px,3.6vw,52px)/1.2 "Cormorant Garamond",serif;letter-spacing:-.005em}
 .mani .big em{color:var(--gold2)}
 .mani .side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:72px;border-top:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:0;margin-top:72px;border-top:1px solid var(--line)}
 .facts div{padding:32px 24px 0 0}
 .facts strong{display:block;font:400 clamp(48px,6vw,88px)/1 "Cormorant Garamond",serif;color:var(--gold2)}
 .facts span{display:block;color:var(--mute);font-size:14px;margin-top:12px;max-width:24ch}
@@ -115,7 +116,7 @@ header.solid .nav{height:76px}
 .quote h2{font-size:clamp(40px,6vw,92px);font-weight:400;max-width:16ch;margin:0 auto}
 .quote p{margin:30px auto 0;color:#d6cfc4;max-width:52ch}
 /* process */
-.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:20px}
+.proc{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0;margin-top:20px}
 .proc div{padding:40px 32px 10px 0;border-top:1px solid var(--line);position:relative}
 .proc div::before{content:"";position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--gold);transition:width 1.4s ease}
 .proc.in div::before{width:100%}
@@ -214,8 +215,10 @@ dialog::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(4px)}
 .x{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(11,11,10,.7);color:#fff;font-size:22px;cursor:pointer;z-index:3}
 @media(max-width:760px){.mbody{grid-template-columns:minmax(0,1fr)}.mbody .ph{min-height:260px}.mbody .txt{padding:30px 24px}}
 /* açılış */
-#intro{position:fixed;inset:0;z-index:200;background:#000;display:grid;place-items:center;transition:opacity .9s ease,visibility .9s}
+#intro{position:fixed;inset:0;z-index:200;background:#000;display:grid;place-items:center;transition:opacity 1.6s cubic-bezier(.4,0,.2,1),visibility 1.6s}
 #intro.out{opacity:0;visibility:hidden}
+#intro b{transition:opacity 1.2s ease,letter-spacing 1.8s cubic-bezier(.2,.7,.2,1),filter 1.4s ease}
+#intro.out b{opacity:0!important;letter-spacing:.16em;filter:blur(6px)}
 #intro b{font:500 clamp(64px,11vw,150px)/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.04em;background:linear-gradient(180deg,#d8d8d6,#8e8e8b);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:scale(.96);animation:introIn 1s .15s cubic-bezier(.2,.7,.2,1) forwards}
 @keyframes introIn{to{opacity:1;transform:none}}
 body.intro{overflow:hidden}
@@ -392,19 +395,19 @@ function render(){
   const media=(src,alt,cat)=>src?`<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`:art(cat);
   /* hero */
   const slides=(G.heroSlaytlar&&G.heroSlaytlar.length?G.heroSlaytlar:['img/cephe.jpg']);
-  $('slides').innerHTML=(G.heroVideo?`<div class="slide on"><video id="heroVideo" muted loop playsinline autoplay src="${esc(G.heroVideo)}"></video></div>`:'')+slides.map((s,i)=>`<div class="slide${!G.heroVideo&&i===0?' on':''}"><img src="${esc(s)}" alt=""></div>`).join('');
+  $('slides').innerHTML=(G.heroVideo?`<div class="slide on"><video id="heroVideo" muted loop playsinline autoplay src="${esc(G.heroVideo)}"></video></div>`:'')+slides.map((s,i)=>`<div class="slide${!G.heroVideo&&i===0?' on':''}"><picture>${s==='img/cephe.jpg'?'<source media="(max-width:700px)" srcset="img/cephe-mobil.jpg">':''}<img src="${esc(s)}" alt=""></picture></div>`).join('');
   $('heroUst').textContent=M.heroUst;$('heroB1').textContent=M.heroBaslik1;$('heroB2').textContent=M.heroBaslik2;$('heroAlt').textContent=M.heroAlt;
   /* hakkımızda */
   $('yetkili').textContent=A.yetkili;$('firmaAd').textContent=A.firma;$('hakkimizdaMetin').innerHTML=rich(M.hakkimizda);
   $('facts').innerHTML=D.rakamlar.map(r=>`<div><strong>${esc(r.deger)}</strong><span>${esc(r.etiket)}</span></div>`).join('');
-  $('facts').style.gridTemplateColumns=`repeat(${Math.max(1,D.rakamlar.length)},minmax(0,1fr))`;
+  $('facts').style.setProperty('--n',Math.max(1,D.rakamlar.length));
   /* hizmetler */
   $('slist').innerHTML=D.hizmetler.map(c=>`<button class="srow" data-c="${esc(c.id)}"><h3>${esc(c.ad)}</h3><p>${esc(c.aciklama)}</p><span class="go"><i></i></span></button>`).join('');
   $('fType').innerHTML=D.hizmetler.map(c=>`<option>${esc(c.ad)}</option>`).join('')+'<option>Diğer</option>';
   /* fark + süreç */
   $('plx').src=G.araBolum||'img/resepsiyon.jpg';$('farkBaslik').innerHTML=rich(M.farkBaslik);$('farkMetin').textContent=M.farkMetin;
   $('proc').innerHTML=D.surec.map((s,i)=>`<div><small>Aşama ${i+1}</small><h3>${esc(s.baslik)}</h3><p>${esc(s.metin)}</p></div>`).join('');
-  $('proc').style.gridTemplateColumns=`repeat(${Math.min(4,Math.max(1,D.surec.length))},minmax(0,1fr))`;
+  $('proc').style.setProperty('--n',Math.min(4,Math.max(1,D.surec.length)));
   /* galeri */
   $('gal').innerHTML=(G.galeri||[]).map(g=>`<figure><img src="${esc(g.src)}" alt="${esc(g.etiket)}" loading="lazy">${g.etiket?`<figcaption>${esc(g.etiket)}</figcaption>`:''}</figure>`).join('');
   $('igBtns').innerHTML=(A.instagram?`<a class="btn gold" href="${esc(A.instagram)}" target="_blank" rel="noopener">Instagram'da takip edin <span class="ar"></span></a>`:'')+(A.tanitimVideoLink?`<a class="btn" href="${esc(A.tanitimVideoLink)}" target="_blank" rel="noopener">Tanıtım videosu</a>`:'');
@@ -493,8 +496,8 @@ render();
 fetch('/api/site',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.ayarlar&&Array.isArray(d.projeler)){D=d;render()}}).catch(()=>{});
 
 const intro=$('intro'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const endIntro=()=>{intro.classList.add('out');document.body.classList.remove('intro');setTimeout(()=>document.body.classList.add('loaded'),250);setTimeout(()=>intro.remove(),1000)};
-setTimeout(endIntro,rm?0:1800);
+const endIntro=()=>{intro.classList.add('out');document.body.classList.remove('intro');setTimeout(()=>document.body.classList.add('loaded'),rm?0:700);setTimeout(()=>intro.remove(),rm?0:1800)};
+setTimeout(endIntro,rm?0:2000);
 }
 </script>
 </body>
