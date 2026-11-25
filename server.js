@@ -91,7 +91,7 @@ async function saveAuth(a) {
 }
 const storageInfo = () => ({
   icerik: redis ? "redis" : fileOk ? "dosya" : "gecici",
-  dosyalar: USE_BLOB ? "blob" : ON_VERCEL ? "yok" : "dosya",
+  dosyalar: USE_BLOB ? "blob" : process.env.BLOB_STORE_ID ? "token-yok" : ON_VERCEL ? "yok" : "dosya",
 });
 
 /* ---------------- Oturum ---------------- */
@@ -325,9 +325,27 @@ admin.post("/geri-yukle", wrap(async (req, res) => {
 app.use("/api/yonetim", admin);
 app.use("/api", (req, res) => res.status(404).json({ hata: "Bulunamadı" }));
 
-/* ---- Statik dosyalar (yalnızca yerelde; Vercel'de public/ klasörünü CDN sunar) ---- */
+/* ---- Sayfalar ----
+   Vercel ana sayfa ve panel isteklerini bu fonksiyona yönlendirdiği için HTML ve panel dosyaları
+   burada da sunulur (yollar sabit yazıldı ki Vercel bu dosyaları pakete dahil etsin). */
+const PAGES = {
+  "/": [() => fs.readFileSync(path.join(__dirname, "public", "index.html")), "text/html; charset=utf-8"],
+  "/index.html": [() => fs.readFileSync(path.join(__dirname, "public", "index.html")), "text/html; charset=utf-8"],
+  "/admin": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "index.html")), "text/html; charset=utf-8"],
+  "/admin/": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "index.html")), "text/html; charset=utf-8"],
+  "/admin/index.html": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "index.html")), "text/html; charset=utf-8"],
+  "/admin/admin.js": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "admin.js")), "application/javascript; charset=utf-8"],
+  "/admin/admin.css": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "admin.css")), "text/css; charset=utf-8"],
+  "/admin/blob-client.js": [() => fs.readFileSync(path.join(__dirname, "public", "admin", "blob-client.js")), "application/javascript; charset=utf-8"],
+};
+app.get(Object.keys(PAGES), (req, res, next) => {
+  const p = PAGES[req.path];
+  if (!p) return next();
+  try { res.type(p[1]).set("Cache-Control", "no-cache").send(p[0]()); } catch (e) { next(e); }
+});
+
+/* ---- Diğer statik dosyalar (görseller vb.; Vercel'de bunları public/ klasöründen CDN sunar) ---- */
 if (!ON_VERCEL) {
-  app.get("/admin", (req, res, next) => (req.path === "/admin" ? res.redirect("/admin/") : next()));
   app.use(express.static(PUBLIC_DIR, { extensions: ["html"] }));
 }
 
