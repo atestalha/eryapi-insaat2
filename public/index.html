@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ER Yapı İnşaat | Akşehir</title>
+<meta name="description" content="ER Yapı İnşaat — Konya Akşehir'de 15 yılı aşkın tecrübeyle villa, malikane, müstakil konut, yap-sat, endüstriyel yapı, yönetim binası, silo, depo ve hangar. Mimarlık, mühendislik, müşavirlik ve anahtar teslim uygulama.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: lüks konut markası sakinliği — az kelime, çok boşluk, ağır ve emin
+   IDEA: firmanın kendi lobisi: siyah mermer, fırçalanmış çelik harfler, sıcak LED; vitrindeki mimari maket
+   PICTURE: tam ekran sinematik slayt (cephe, lobi, toplantı odası) + mermer üstüne çizilmiş proje paftaları
+   COLOUR and TYPE: mermer siyahı #0b0b0a, kemik beyazı #f3efe8, şampanya #c8a97e (LED ışığı); Cormorant Garamond + Manrope
+   LAYOUT: şeffaf menü, tam ekran hero, büyük manifesto, hover'da görsel açan hizmet satırları, yatay proje kaydırıcı */
+:root{color-scheme:dark;--bg:#0b0b0a;--bg2:#121110;--bg3:#191816;--ink:#f3efe8;--mute:#9b958b;--line:rgba(243,239,232,.12);--gold:#c8a97e;--gold2:#e2c9a2;--panel:#191816;--steel:#f3efe8;--led2:#c8a97e}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 16px/1.7 Manrope,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(40px,5.4vw,76px)}
+h2 em,h1 em{font-style:italic;color:var(--gold2);font-weight:400}
+h3{font-size:30px}
+p{margin:0}a{color:inherit}img{display:block;max-width:100%}
+.wrap{max-width:1320px;margin:0 auto}
+.band{padding:clamp(80px,11vw,160px) max(5vw,20px)}
+.label{display:flex;align-items:center;gap:14px;font-size:14px;font-weight:500;color:var(--gold);margin-bottom:26px}
+.label::before{content:"";width:40px;height:1px;background:var(--gold)}
+.lead{color:var(--mute);font-size:17px;max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 30px;font:500 14px Manrope,sans-serif;text-decoration:none;border:1px solid rgba(243,239,232,.4);background:transparent;color:var(--ink);cursor:pointer;transition:.35s;border-radius:0}
+.btn:hover{border-color:var(--gold);color:var(--gold2)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#14110d}.btn.gold:hover{background:var(--gold2);border-color:var(--gold2);color:#14110d}
+.btn .ar{width:22px;height:1px;background:currentColor;position:relative;transition:width .35s}
+.btn .ar::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover .ar{width:32px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:background .4s,height .4s,border-color .4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(11,11,10,.9);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{height:96px;display:flex;align-items:center;gap:40px;padding:0 max(4vw,20px);transition:height .4s}
+header.solid .nav{height:76px}
+.nav .logo img{height:36px;width:auto}
+.nav nav{display:flex;gap:38px;margin:0 auto}
+.nav nav a{text-decoration:none;font-size:14px;font-weight:400;color:#d9d3c9;position:relative;padding:6px 0}
+.nav nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--gold);transition:right .35s}
+.nav nav a:hover{color:#fff}.nav nav a:hover::after{right:0}
+.nav .btn{min-height:46px;padding:0 22px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;background:none;border:0;cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:1px;background:var(--ink);transition:.3s}
+.burger span:nth-child(1){top:19px}.burger span:nth-child(2){top:28px}
+.burger[aria-expanded=true] span:nth-child(1){top:24px;transform:rotate(45deg)}.burger[aria-expanded=true] span:nth-child(2){top:24px;transform:rotate(-45deg)}
+.mob{position:fixed;inset:0;z-index:55;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:100px max(6vw,24px) 40px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mob.open{opacity:1;pointer-events:auto}
+.mob a{font:500 40px/1.25 "Cormorant Garamond",serif;text-decoration:none;padding:6px 0}
+.mob small{margin-top:36px;color:var(--mute);font-size:15px;line-height:1.9}
+@media(max-width:1080px){.nav nav,.nav>.btn{display:none}.burger{display:block}}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;isolation:isolate}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.slide.on{opacity:1}
+.slide img,.slide video{width:100%;height:100%;object-fit:cover}
+.slide.on img{animation:zoom 9s ease-out both}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,11,10,.88),rgba(11,11,10,.45) 50%,rgba(11,11,10,.15)),linear-gradient(0deg,rgba(11,11,10,.9),rgba(11,11,10,0) 45%)}
+.hero .in{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:0 max(4vw,20px) clamp(40px,7vh,80px)}
+.hero .sub{font-size:15px;color:var(--gold2);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.hero .sub::before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(54px,9vw,148px);font-weight:400;line-height:.95;letter-spacing:-.02em;max-width:11ch}
+.hero .row{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:end;justify-content:space-between;margin-top:42px}
+.hero .row p{color:#cfc8bd;max-width:46ch;font-size:16px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.ctrl{position:absolute;z-index:3;right:max(4vw,20px);top:50%;transform:translateY(-50%);display:grid;gap:14px}
+.ctrl button{width:3px;height:46px;border:0;padding:0;background:rgba(243,239,232,.25);cursor:pointer;position:relative;overflow:hidden}
+.ctrl button::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleY(0);transform-origin:top}
+.ctrl button.on::after{animation:prog 7s linear both}
+@keyframes prog{to{transform:scaleY(1)}}
+.ctrl button::before{content:"";position:absolute;inset:-10px -20px}
+.scroll{position:absolute;z-index:3;left:50%;bottom:22px;width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:sc 2.4s infinite}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:700px){.ctrl{display:none}.scroll{display:none}.hero::after{background:linear-gradient(0deg,rgba(11,11,10,.95) 10%,rgba(11,11,10,.35) 70%,rgba(11,11,10,.5))}}
+/* manifesto */
+.mani{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:clamp(32px,6vw,100px)}
+.mani .big{font:400 clamp(30px,3.6vw,52px)/1.2 "Cormorant Garamond",serif;letter-spacing:-.005em}
+.mani .big em{color:var(--gold2)}
+.mani .side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:72px;border-top:1px solid var(--line)}
+.facts div{padding:32px 24px 0 0}
+.facts strong{display:block;font:400 clamp(48px,6vw,88px)/1 "Cormorant Garamond",serif;color:var(--gold2)}
+.facts span{display:block;color:var(--mute);font-size:14px;margin-top:12px;max-width:24ch}
+.sig{display:flex;align-items:center;gap:18px}
+.sig img{width:56px}
+.sig b{display:block;font:500 24px "Cormorant Garamond",serif}.sig span{color:var(--mute);font-size:13px}
+@media(max-width:860px){.mani{grid-template-columns:minmax(0,1fr)}.facts{grid-template-columns:minmax(0,1fr)}.facts div{display:flex;gap:20px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line)}.facts span{margin:0}}
+/* services */
+.svc{background:var(--bg2)}
+.shead{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:70px}
+.slist{position:relative;border-top:1px solid var(--line)}
+.srow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 60px;gap:32px;align-items:center;padding:38px 0;border-bottom:1px solid var(--line);cursor:pointer;position:relative;background:none;border-left:0;border-right:0;border-top:0;color:inherit;text-align:left;width:100%;font:inherit}
+.srow h3{font-size:clamp(32px,3.8vw,56px);font-weight:400;transition:color .4s,transform .5s}
+.srow p{color:var(--mute);font-size:15px;transition:color .4s}
+.srow .go{width:56px;height:56px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:.4s}
+.srow .go i{width:14px;height:14px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg) translate(-2px,2px)}
+.srow:hover h3,.srow:focus-visible h3{color:var(--gold2);transform:translateX(14px)}
+.srow:hover p{color:#cfc8bd}
+.srow:hover .go{background:var(--gold);border-color:var(--gold);color:#111}
+@media(max-width:860px){.shead{grid-template-columns:minmax(0,1fr)}.srow{grid-template-columns:minmax(0,1fr) 48px;gap:10px 18px;padding:28px 0}.srow p{grid-column:1;grid-row:2}.srow .go{grid-column:2;grid-row:1/3;width:46px;height:46px}}
+/* pafta (blueprint on marble) */
+.pf{position:relative;overflow:hidden;background:#0d0c0b url(img/mermer.jpg) center/cover}
+.pf::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,10,.45),rgba(11,11,10,.7))}
+.pf svg{position:absolute;inset:8% 6%;width:88%;height:84%}
+/* parallax quote */
+.quote{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;overflow:hidden;isolation:isolate;padding:120px max(5vw,20px)}
+.quote img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;z-index:-2;will-change:transform}
+.quote::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(11,11,10,.62)}
+.quote h2{font-size:clamp(40px,6vw,92px);font-weight:400;max-width:16ch;margin:0 auto}
+.quote p{margin:30px auto 0;color:#d6cfc4;max-width:52ch}
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:20px}
+.proc div{padding:40px 32px 10px 0;border-top:1px solid var(--line);position:relative}
+.proc div::before{content:"";position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--gold);transition:width 1.4s ease}
+.proc.in div::before{width:100%}
+.proc div:nth-child(2)::before{transition-delay:.3s}.proc div:nth-child(3)::before{transition-delay:.6s}.proc div:nth-child(4)::before{transition-delay:.9s}
+.proc small{display:block;color:var(--gold);font-size:13px;margin-bottom:22px}
+.proc h3{margin-bottom:14px}.proc p{color:var(--mute);font-size:15px}
+@media(max-width:900px){.proc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.proc{grid-template-columns:minmax(0,1fr)}}
+/* projects */
+.prj{background:var(--bg2);overflow:hidden}
+.ptop{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:end;margin-bottom:44px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:42px;padding:0 18px;border:1px solid var(--line);background:none;color:#cfc8bd;font:400 13px Manrope,sans-serif;cursor:pointer;border-radius:40px;transition:.3s}
+.chips button:hover{border-color:var(--gold)}
+.chips button[aria-pressed=true]{background:var(--ink);color:#111;border-color:var(--ink)}
+.track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;margin-right:calc(-1 * max(5vw,20px));padding-right:max(5vw,20px)}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 clamp(280px,31vw,430px);scroll-snap-align:start;position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;border:0;padding:0;background:#000;color:inherit;font:inherit;text-align:left}
+.card>img,.card>.pf{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover>img,.card:hover>.pf{transform:scale(1.06)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,10,.92),rgba(11,11,10,0) 55%)}
+.card .cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:28px}
+.card .cap small{color:var(--gold2);font-size:13px}
+.card .cap h3{font-size:34px;margin:8px 0 6px}
+.card .cap span{color:#bdb6aa;font-size:14px}
+.card .st{position:absolute;z-index:2;top:20px;left:20px;font-size:12px;padding:6px 12px;border:1px solid rgba(243,239,232,.35);background:rgba(11,11,10,.4);backdrop-filter:blur(6px)}
+.card .st.live{border-color:var(--gold);color:var(--gold2)}
+.pnav{display:flex;align-items:center;gap:16px;margin-top:36px}
+.pnav button{width:56px;height:56px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:.3s}
+.pnav button:hover{border-color:var(--gold);color:var(--gold2)}
+.pnav i{width:12px;height:12px;border-top:1px solid currentColor;border-right:1px solid currentColor}
+.pnav .prev i{transform:rotate(-135deg) translate(-2px,2px)}.pnav .next i{transform:rotate(45deg) translate(-2px,2px)}
+.pnav .bar{flex:1;height:1px;background:var(--line);position:relative}
+.pnav .bar span{position:absolute;left:0;top:0;height:1px;background:var(--gold);transition:width .3s,left .3s}
+.empty{flex:1;padding:60px;text-align:center;color:var(--mute);border:1px dashed var(--line)}
+.note{color:var(--mute);font-size:13px;margin-top:22px}
+/* gallery */
+.gal{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px;margin-top:64px}
+.gal figure{margin:0;overflow:hidden;position:relative}
+.gal figure:first-child{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:16px;bottom:14px;font-size:13px;color:#e8e2d8;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.ig{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:end}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-template-rows:240px 200px 200px}.gal figure:first-child{grid-column:span 2;grid-row:auto}}
+/* contact */
+.ct{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,7vw,120px)}
+.ct h2{margin-bottom:28px}
+.cinfo{margin-top:52px;display:grid}
+.cinfo a,.cinfo div{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);text-decoration:none;transition:color .3s}
+.cinfo span{color:var(--mute);font-size:13px;padding-top:4px}
+.cinfo b{font:500 22px/1.35 "Cormorant Garamond",serif;overflow-wrap:anywhere}
+.cinfo a:hover b{color:var(--gold2)}
+form{background:var(--bg3);padding:clamp(28px,4.5vw,56px);display:grid;gap:22px;align-content:start;border:1px solid var(--line)}
+form h3{font-size:36px;margin-bottom:6px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:4px;font-size:13px;color:var(--mute)}
+input,select,textarea{font:300 16px Manrope,sans-serif;background:transparent;color:var(--ink);border:0;border-bottom:1px solid rgba(243,239,232,.22);border-radius:0;padding:12px 0;min-height:48px;width:100%;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold)}
+select option{background:#191816}
+textarea{min-height:110px;resize:vertical}
+.sent{display:none;padding:16px;border:1px solid var(--gold);color:var(--gold2);font-size:15px}.sent.show{display:block}
+@media(max-width:900px){.ct{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}.cinfo a,.cinfo div{grid-template-columns:minmax(0,1fr);gap:4px}}
+/* footer */
+footer{padding:90px max(5vw,20px) 34px;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.fbig{display:block;width:100%;max-width:1320px;margin:0 auto 70px;opacity:.07}
+.fcols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.fcols h4{margin:0 0 16px;font:500 13px Manrope,sans-serif;color:var(--gold)}
+.fcols a{display:block;text-decoration:none;color:#cfc8bd;padding:5px 0;font-size:15px}.fcols a:hover{color:#fff}
+.fcols p{color:var(--mute);font-size:15px;max-width:34ch}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.fbot a{text-decoration:none}
+@media(max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.fcols{grid-template-columns:minmax(0,1fr)}}
+.wa{position:fixed;right:20px;bottom:20px;z-index:40;width:56px;height:56px;border-radius:50%;background:#1d1c1a;border:1px solid var(--gold);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:.3s}
+.wa:hover{background:var(--gold)}.wa svg{width:26px;height:26px;fill:var(--gold2)}.wa:hover svg{fill:#111}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.15s}.rv.d2{transition-delay:.3s}
+.mask{overflow:hidden}.mask>span{display:inline-block;transform:translateY(105%);transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.loaded .mask>span{transform:none}
+.loaded .mask:nth-of-type(2)>span{transition-delay:.12s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.mask>span{transform:none}html{scroll-behavior:auto}}
+/* modal */
+dialog{border:1px solid var(--line);background:var(--bg2);color:var(--ink);padding:0;max-width:min(1040px,94vw);width:100%;max-height:92vh}
+dialog::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(4px)}
+.mbody{display:grid;grid-template-columns:1.25fr 1fr}
+.mbody .ph{min-height:420px;position:relative;background:#000}
+.mbody .ph>img,.mbody .ph>.pf{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mbody .txt{padding:48px 40px}
+.mbody h2{font-size:44px}
+.mbody dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;margin:28px 0;font-size:15px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mbody dt{color:var(--mute)}.mbody dd{margin:0}
+.x{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(11,11,10,.7);color:#fff;font-size:22px;cursor:pointer;z-index:3}
+@media(max-width:760px){.mbody{grid-template-columns:minmax(0,1fr)}.mbody .ph{min-height:260px}.mbody .txt{padding:30px 24px}}
+/* açılış */
+#intro{position:fixed;inset:0;z-index:200;background:#000;display:grid;place-items:center;transition:opacity .9s ease,visibility .9s}
+#intro.out{opacity:0;visibility:hidden}
+#intro b{font:500 clamp(64px,11vw,150px)/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.04em;background:linear-gradient(180deg,#d8d8d6,#8e8e8b);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:scale(.96);animation:introIn 1s .15s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes introIn{to{opacity:1;transform:none}}
+body.intro{overflow:hidden}
+/* proje galerisi */
+.mbody .ph .thumbs{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:8px;overflow-x:auto;z-index:2}
+.thumbs button{flex:0 0 64px;height:48px;padding:0;border:1px solid rgba(243,239,232,.3);background:#000;cursor:pointer;opacity:.7}
+.thumbs button.on{opacity:1;border-color:var(--gold)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.hero #slides{position:absolute;inset:0}
+button:disabled{opacity:.6;cursor:wait}
+</style>
+</head>
+<body class="intro">
+<div id="intro" aria-hidden="true"><b>ER YAPI</b></div>
+<header id="hdr">
+  <div class="nav">
+    <a class="logo" href="#top" aria-label="ER Yapı İnşaat ana sayfa"><img src="img/logo-light.png" alt="ER Yapı İnşaat"></a>
+    <nav>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#projeler">Projeler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <a class="btn" href="#iletisim">Teklif alın <span class="ar"></span></a>
+    <button class="burger" id="burger" aria-label="Menü" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mob" id="mob">
+  <a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Projeler</a><a href="#surec">Süreç</a><a href="#iletisim">İletişim</a>
+  <small id="mobInfo"></small>
+</div>
+
+<section class="hero" id="top">
+  <div id="slides"></div>
+  <div class="in">
+    <div class="sub" id="heroUst"></div>
+    <h1><div class="mask"><span id="heroB1"></span></div><div class="mask"><span><em id="heroB2"></em></span></div></h1>
+    <div class="row">
+      <p id="heroAlt"></p>
+      <div class="ctas"><a class="btn gold" href="#projeler">Projelerimiz <span class="ar"></span></a><a class="btn" href="#iletisim">Bize ulaşın</a></div>
+    </div>
+  </div>
+  <div class="ctrl" id="ctrl" aria-label="Slaytlar"></div>
+  <div class="scroll" aria-hidden="true"></div>
+</section>
+
+<section class="band" id="hakkimizda">
+  <div class="wrap">
+    <div class="mani">
+      <div class="side rv">
+        <div class="label">Hakkımızda</div>
+        <div class="sig"><img src="img/mark.png" alt=""><div><b id="yetkili"></b><span id="firmaAd"></span></div></div>
+      </div>
+      <p class="big rv d1" id="hakkimizdaMetin"></p>
+    </div>
+    <div class="facts rv" id="facts"></div>
+  </div>
+</section>
+
+<section class="band svc" id="hizmetler">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rv"><div class="label">Hizmetlerimiz</div><h2>Her ölçekte, <em>özenle</em> inşa ediyoruz</h2></div>
+      <p class="lead rv d1">Bir alana tıklayın, o alandaki projelerimizi görün. Tüm yapı türlerinde mimarlık, mühendislik, müşavirlik ve anahtar teslim uygulama hizmeti veriyoruz.</p>
+    </div>
+    <div class="slist" id="slist"></div>
+  </div>
+</section>
+
+<section class="quote">
+  <img src="" alt="" id="plx">
+  <div class="rv">
+    <div class="label" style="justify-content:center">ER Yapı farkı</div>
+    <h2 id="farkBaslik"></h2>
+    <p id="farkMetin"></p>
+  </div>
+</section>
+
+<section class="band" id="surec">
+  <div class="wrap">
+    <div class="shead">
+      <div class="rv"><div class="label">Hizmet sürecimiz</div><h2>Dört disiplin, <em>tek çatı</em></h2></div>
+      <p class="lead rv d1">İlk görüşmeden iskâna kadar projenizin her adımını şeffaf biçimde birlikte planlıyoruz.</p>
+    </div>
+    <div class="proc rv" id="proc"></div>
+  </div>
+</section>
+
+<section class="band prj" id="projeler">
+  <div class="wrap">
+    <div class="ptop">
+      <div class="rv"><div class="label">Projelerimiz</div><h2>İmzamızı taşıyan <em>yapılar</em></h2></div>
+      <div class="chips rv d1" id="filters" role="group" aria-label="Proje kategorisi"></div>
+    </div>
+    <div class="track" id="track" tabindex="0" aria-label="Projeler"></div>
+    <div class="pnav"><button class="prev" id="prev" aria-label="Önceki"><i></i></button><button class="next" id="next" aria-label="Sonraki"><i></i></button><div class="bar"><span id="pbar"></span></div></div>
+  </div>
+</section>
+
+<section class="band" id="galeri">
+  <div class="wrap">
+    <div class="ig">
+      <div class="rv"><div class="label">Instagram</div><h2>Şantiyeden <em>teslime</em></h2></div>
+      <div class="rv d1" id="igBtns" style="display:flex;flex-wrap:wrap;gap:12px"></div>
+    </div>
+    <div class="gal rv" id="gal"></div>
+  </div>
+</section>
+
+<section class="band svc" id="iletisim">
+  <div class="wrap ct">
+    <div class="rv">
+      <div class="label">İletişim</div>
+      <h2>Hayalinizdeki yapıyı <em>birlikte</em> planlayalım</h2>
+      <p class="lead" id="iletisimMetin"></p>
+      <div class="cinfo" id="cinfo"></div>
+    </div>
+    <form id="cform" class="rv d1" novalidate>
+      <h3>Teklif ve bilgi talebi</h3>
+      <div class="row2">
+        <label for="fName">Ad soyad<input id="fName" required autocomplete="name"></label>
+        <label for="fTel">Telefon<input id="fTel" type="tel" required autocomplete="tel" inputmode="tel"></label>
+      </div>
+      <label for="fType">Proje türü<select id="fType"></select></label>
+      <label for="fMsg">Mesajınız<textarea id="fMsg" placeholder="Arsa konumu, metrekare, aklınızdaki yapı…"></textarea></label>
+      <input type="text" id="fWeb" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <div><button class="btn gold" type="submit" id="fBtn">Gönder <span class="ar"></span></button></div>
+      <div class="sent" id="sent" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <img class="fbig" src="img/logo-light.png" alt="">
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4 id="fFirma">ER Yapı İnşaat</h4><p id="footerMetin"></p></div>
+      <div><h4>Menü</h4><a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#projeler">Projeler</a><a href="#iletisim">İletişim</a></div>
+      <div id="fIletisim"><h4>İletişim</h4></div>
+      <div id="fSosyal"><h4>Sosyal medya</h4></div>
+    </div>
+    <div class="fbot"><span>© <span id="yr"></span> <span id="fFirma2">ER Yapı İnşaat</span>. Tüm hakları saklıdır.</span><span>Tasarım: Gürlek Medya - Abdullah Talha Ateş</span></div>
+  </div>
+</footer>
+
+<a class="wa" id="waBtn" href="#" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a>
+
+<dialog id="pdlg"><button class="x" id="pclose" aria-label="Kapat">×</button><div class="mbody" id="pbody"></div></dialog>
+
+<script>
+{
+/* Varsayılan içerik: sunucu yokken (önizleme) kullanılır; sunucuda /api/site'tan gelir */
+const DEFAULT={"ayarlar": {"firma": "ER Yapı İnşaat", "yetkili": "Orhan Erdoğan", "telefon": "0545 284 17 84", "whatsapp": "905452841784", "eposta": "eryapiinsaat@outlook.com", "adres": "Meydan Mah. 32211 Sok. Başoğlu İş Merkezi No: 2/8, 42550 Akşehir / Konya", "haritaLink": "https://www.google.com/maps/search/?api=1&query=Ba%C5%9Fo%C4%9Flu+%C4%B0%C5%9F+Merkezi+Meydan+Ak%C5%9Fehir+Konya", "instagram": "https://www.instagram.com/er_yapi_insaat_aksehir/", "facebook": "https://www.facebook.com/eryapiinsaataksehir", "tanitimVideoLink": "https://www.instagram.com/tv/DVqrPajiKXI/"}, "metinler": {"heroUst": "Akşehir · Konya · 15 yılı aşkın tecrübe", "heroBaslik1": "Lüks yapılar,", "heroBaslik2": "kalıcı değerler.", "heroAlt": "Lüks yapılara sahip olmak istiyorsanız doğru yerdesiniz. Villadan endüstriyel tesise, tasarımdan anahtar teslime kadar tek muhatabınız ER Yapı.", "hakkimizda": "15 yılı aşkın süredir Akşehir'de, *yaşamınıza değer katan* yapılar inşa ediyoruz. Villa ve malikanelerden endüstriyel tesislere, yönetim binalarından silo ve hangarlara kadar her projenin mimarlığını, mühendisliğini ve müşavirliğini kendi bünyemizde yürütüyor, *anahtar teslim* ediyoruz.", "farkBaslik": "Tasarımdan anahtar teslime, *tek muhatap.*", "farkMetin": "Çizimden şantiyeye her aşama aynı ekipte. Maliyet, takvim ve kalite tek elden yönetilir; siz yalnızca anahtarınızı teslim alırsınız.", "iletisimMetin": "Arsanız, projeniz ya da yalnızca bir fikriniz olsun; ön görüşme için bize ulaşın.", "footerMetin": "Akşehir'de 15 yılı aşkın tecrübeyle; villa, konut, endüstriyel ve ticari yapılarda anahtar teslim çözümler."}, "rakamlar": [{"deger": "15+", "etiket": "yıllık sektör tecrübesi"}, {"deger": "6", "etiket": "farklı yapı türünde uzmanlık"}, {"deger": "4", "etiket": "disiplin tek çatı altında: mimarlık, mühendislik, müşavirlik, uygulama"}], "hizmetler": [{"id": "villa", "ad": "Villa & Malikane", "aciklama": "Size özel mimari, yüksek tavanlar, geniş açıklıklar ve seçkin malzemeyle villa ve malikaneler."}, {"id": "konut", "ad": "Müstakil Konut", "aciklama": "Ailenizin ihtiyacına göre tasarlanan, uzun ömürlü ve enerji verimli müstakil evler."}, {"id": "yapsat", "ad": "Yap-Sat Müteahhitliği", "aciklama": "Kat karşılığı ve yap-sat modeliyle konut projeleri; şeffaf süreç, zamanında teslim."}, {"id": "endustri", "ad": "Endüstriyel Yapılar", "aciklama": "Fabrika, atölye ve üretim tesisleri; çelik ve betonarme, geniş açıklıklı hacimler."}, {"id": "yonetim", "ad": "Yönetim Binaları", "aciklama": "Kurumlar ve şirketler için temsil gücü yüksek, işlevsel idari binalar."}, {"id": "depo", "ad": "Silo, Depo & Hangar", "aciklama": "Tarım ve sanayi için hızlı, dayanıklı ve ekonomik silo, depo ve hangar yapıları."}], "surec": [{"baslik": "Mimarlık", "metin": "İhtiyaç analizi, konsept tasarım, avan ve uygulama projeleri, 3B görselleştirme ve maket."}, {"baslik": "Mühendislik", "metin": "Statik, mekanik ve elektrik projeleri; zemine ve kullanıma uygun taşıyıcı sistem."}, {"baslik": "Müşavirlik", "metin": "Ruhsat ve resmi süreçlerin takibi; maliyet ve fizibilite danışmanlığı."}, {"baslik": "Anahtar teslim", "metin": "Kaba ve ince inşaat, peyzaj ve iskân dahil; yapınızı kullanıma hazır teslim ediyoruz."}], "gorseller": {"heroVideo": "", "heroSlaytlar": ["img/cephe.jpg", "img/resepsiyon.jpg", "img/toplanti.jpg"], "araBolum": "img/resepsiyon.jpg", "galeri": [{"src": "img/cephe-dikey.jpg", "etiket": "Cephe"}, {"src": "img/maket.jpg", "etiket": "Proje maketi"}, {"src": "img/toplanti.jpg", "etiket": "Toplantı salonu"}, {"src": "img/resepsiyon.jpg", "etiket": "Lobi"}, {"src": "img/cephe.jpg", "etiket": "Akşehir ofisi"}]}, "projeler": [{"id": "p1", "baslik": "Palmiye Villaları", "kategori": "villa", "konum": "Akşehir / Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Geniş bahçesi, yüksek giriş holü ve peyzajıyla iki katlı lüks villa projesi.", "kapak": "img/projeler/villa-1.jpg", "galeri": []}, {"id": "p2", "baslik": "Havuzlu Villa", "kategori": "villa", "konum": "Akşehir / Konya", "yil": "2026", "durum": "Devam ediyor", "aciklama": "Tek katlı, havuz çevresinde konumlanan, geniş cam yüzeyli modern villa.", "kapak": "img/projeler/villa-2.jpg", "galeri": []}, {"id": "p3", "baslik": "Bahçeli Müstakil Konut", "kategori": "konut", "konum": "Akşehir / Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Çift garajlı, tek aile için tasarlanmış enerji verimli müstakil ev.", "kapak": "img/projeler/konut-1.jpg", "galeri": []}, {"id": "p4", "baslik": "Beyaz Konak", "kategori": "konut", "konum": "Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Klasik çizgileri modern detaylarla buluşturan iki katlı müstakil konut.", "kapak": "img/projeler/konut-2.jpg", "galeri": []}, {"id": "p5", "baslik": "Meydan Rezidans", "kategori": "yapsat", "konum": "Akşehir / Konya", "yil": "2026", "durum": "Devam ediyor", "aciklama": "Kat karşılığı yap-sat modeliyle, cam korkuluklu geniş balkonlara sahip konut projesi.", "kapak": "img/projeler/yapsat-1.jpg", "galeri": []}, {"id": "p6", "baslik": "Yeşil Teras Konutları", "kategori": "yapsat", "konum": "Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Her katta bitkilendirilmiş teraslarıyla çok katlı konut projesi.", "kapak": "img/projeler/yapsat-2.jpg", "galeri": []}, {"id": "p7", "baslik": "Üretim Tesisi", "kategori": "endustri", "konum": "Akşehir OSB / Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Çelik taşıyıcılı, idari bölümlü ve geniş açıklıklı üretim tesisi.", "kapak": "img/projeler/endustri-1.jpg", "galeri": []}, {"id": "p8", "baslik": "Lojistik Deposu", "kategori": "endustri", "konum": "Konya", "yil": "2023", "durum": "Tamamlandı", "aciklama": "Endüstriyel kapılı, havalandırma panjurlu çelik depo yapısı.", "kapak": "img/projeler/endustri-2.jpg", "galeri": []}, {"id": "p9", "baslik": "Kurumsal Yönetim Binası", "kategori": "yonetim", "konum": "Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Cam cepheli giriş bölümü ve ofis katlarıyla idari bina.", "kapak": "img/projeler/yonetim-1.jpg", "galeri": []}, {"id": "p10", "baslik": "Cam Cepheli Ofis Bloğu", "kategori": "yonetim", "konum": "Konya", "yil": "2025", "durum": "Devam ediyor", "aciklama": "Giydirme cepheli, aydınlatmalı saçaklı modern ofis bloğu.", "kapak": "img/projeler/yonetim-2.jpg", "galeri": []}, {"id": "p11", "baslik": "Çelik Silo Tesisi", "kategori": "depo", "konum": "Akşehir / Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Tarımsal depolama için paslanmaz çelik silolar ve yardımcı yapılar.", "kapak": "img/projeler/depo-1.jpg", "galeri": []}]};
+const S='stroke="#e2d5bf" stroke-width="1.3" fill="none" stroke-linejoin="round"';
+const ART={
+ villa:`<path ${S} d="M40 230h320M70 230V130h110v100M180 230V100l60-40 60 40v130M70 130l55-36 55 36"/><path ${S} d="M200 230v-60a20 20 0 0 1 40 0v60M260 150a14 14 0 0 1 28 0v30h-28zM200 120h80M90 155h30v30H90zM135 155h30v30h-30zM300 230v-50h40v50"/><path stroke="#c8a97e" stroke-width="1.4" fill="none" d="M70 200h110"/>`,
+ konut:`<path ${S} d="M50 230h300M90 230V130l110-70 110 70v100M120 230v-60h40v60M230 160h50v40h-50zM150 130h100M270 85v-30h20v43"/><path stroke="#c8a97e" stroke-width="1.4" fill="none" d="M90 130h220"/>`,
+ yapsat:`<path ${S} d="M40 235h320M110 235V60h180v175M110 95h180M110 130h180M110 165h180M110 200h180"/>`+[0,1,2,3,4].map(r=>[0,1,2].map(c=>`<rect ${S} x="${128+c*54}" y="${70+r*35}" width="36" height="16"/>`).join('')).join('')+`<path ${S} d="M290 235V120h50v115M300 140h30M300 170h30M300 200h30"/>`,
+ endustri:`<path ${S} d="M30 230h340M50 230V140l50-30v30l50-30v30l50-30v30l50-30v120M250 230V90h30v140M280 230V150h80v80"/><path ${S} d="M80 180h140M80 200h140M300 180h40v50h-40z"/><path stroke="#c8a97e" stroke-width="1.4" fill="none" d="M257 70c10-10 20 0 30-10"/>`,
+ yonetim:`<path ${S} d="M30 235h340M120 235V50h160v185M100 235V110h20M280 110h20v125M170 235v-40h60v40M140 50v-14h120v14"/>`+[0,1,2,3,4].map(r=>[0,1,2,3].map(c=>`<line ${S} x1="${140+c*38}" y1="${70+r*26}" x2="${140+c*38}" y2="${88+r*26}"/>`).join('')).join('')+`<path stroke="#c8a97e" stroke-width="1.4" fill="none" d="M120 190h160"/>`,
+ depo:`<path ${S} d="M20 232h360M40 232V100h50v132M40 100a25 22 0 0 1 50 0M100 232V80h50v152M100 80a25 22 0 0 1 50 0M65 78v-30M125 58v-20h80v30"/><path ${S} d="M180 232V150c0-55 180-55 180 0v82M180 150c0-55 180-55 180 0M235 232v-50h70v50M200 150v82M340 150v82"/>`
+};
+const art=id=>`<div class="pf"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g transform="translate(0,20)">${ART[id]||ART.konut}</g></svg></div>`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rich=s=>esc(s).replace(/\*(.+?)\*/g,'<em>$1</em>');
+const $=id=>document.getElementById(id);
+const tel=t=>'tel:+90'+String(t).replace(/\D/g,'').replace(/^0/,'').replace(/^90/,'');
+let D=DEFAULT,filter='all';
+
+function render(){
+  const A=D.ayarlar,M=D.metinler,G=D.gorseller;
+  const catName=id=>(D.hizmetler.find(c=>c.id===id)||{ad:id}).ad;
+  const media=(src,alt,cat)=>src?`<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`:art(cat);
+  /* hero */
+  const slides=(G.heroSlaytlar&&G.heroSlaytlar.length?G.heroSlaytlar:['img/cephe.jpg']);
+  $('slides').innerHTML=(G.heroVideo?`<div class="slide on"><video id="heroVideo" muted loop playsinline autoplay src="${esc(G.heroVideo)}"></video></div>`:'')+slides.map((s,i)=>`<div class="slide${!G.heroVideo&&i===0?' on':''}"><img src="${esc(s)}" alt=""></div>`).join('');
+  $('heroUst').textContent=M.heroUst;$('heroB1').textContent=M.heroBaslik1;$('heroB2').textContent=M.heroBaslik2;$('heroAlt').textContent=M.heroAlt;
+  /* hakkımızda */
+  $('yetkili').textContent=A.yetkili;$('firmaAd').textContent=A.firma;$('hakkimizdaMetin').innerHTML=rich(M.hakkimizda);
+  $('facts').innerHTML=D.rakamlar.map(r=>`<div><strong>${esc(r.deger)}</strong><span>${esc(r.etiket)}</span></div>`).join('');
+  $('facts').style.gridTemplateColumns=`repeat(${Math.max(1,D.rakamlar.length)},minmax(0,1fr))`;
+  /* hizmetler */
+  $('slist').innerHTML=D.hizmetler.map(c=>`<button class="srow" data-c="${esc(c.id)}"><h3>${esc(c.ad)}</h3><p>${esc(c.aciklama)}</p><span class="go"><i></i></span></button>`).join('');
+  $('fType').innerHTML=D.hizmetler.map(c=>`<option>${esc(c.ad)}</option>`).join('')+'<option>Diğer</option>';
+  /* fark + süreç */
+  $('plx').src=G.araBolum||'img/resepsiyon.jpg';$('farkBaslik').innerHTML=rich(M.farkBaslik);$('farkMetin').textContent=M.farkMetin;
+  $('proc').innerHTML=D.surec.map((s,i)=>`<div><small>Aşama ${i+1}</small><h3>${esc(s.baslik)}</h3><p>${esc(s.metin)}</p></div>`).join('');
+  $('proc').style.gridTemplateColumns=`repeat(${Math.min(4,Math.max(1,D.surec.length))},minmax(0,1fr))`;
+  /* galeri */
+  $('gal').innerHTML=(G.galeri||[]).map(g=>`<figure><img src="${esc(g.src)}" alt="${esc(g.etiket)}" loading="lazy">${g.etiket?`<figcaption>${esc(g.etiket)}</figcaption>`:''}</figure>`).join('');
+  $('igBtns').innerHTML=(A.instagram?`<a class="btn gold" href="${esc(A.instagram)}" target="_blank" rel="noopener">Instagram'da takip edin <span class="ar"></span></a>`:'')+(A.tanitimVideoLink?`<a class="btn" href="${esc(A.tanitimVideoLink)}" target="_blank" rel="noopener">Tanıtım videosu</a>`:'');
+  /* iletişim */
+  $('iletisimMetin').textContent=M.iletisimMetin;
+  $('cinfo').innerHTML=`<a href="${tel(A.telefon)}"><span>Telefon</span><b>${esc(A.telefon)}<br><small style="font:300 14px Manrope,sans-serif;color:var(--mute)">${esc(A.yetkili)}</small></b></a><a href="mailto:${esc(A.eposta)}"><span>E-posta</span><b>${esc(A.eposta)}</b></a><a href="${esc(A.haritaLink||'#')}" target="_blank" rel="noopener"><span>Adres</span><b>${esc(A.adres)}</b></a>`;
+  $('mobInfo').innerHTML=`${esc(A.telefon)}<br>${esc(A.eposta)}`;
+  $('footerMetin').textContent=M.footerMetin;$('fFirma').textContent=A.firma;$('fFirma2').textContent=A.firma;
+  $('fIletisim').innerHTML=`<h4>İletişim</h4><a href="${tel(A.telefon)}">${esc(A.telefon)}</a><a href="mailto:${esc(A.eposta)}">${esc(A.eposta)}</a><p style="font-size:14px;margin-top:6px">${esc(A.adres)}</p>`;
+  $('fSosyal').innerHTML='<h4>Sosyal medya</h4>'+(A.instagram?`<a href="${esc(A.instagram)}" target="_blank" rel="noopener">Instagram</a>`:'')+(A.facebook?`<a href="${esc(A.facebook)}" target="_blank" rel="noopener">Facebook</a>`:'');
+  $('waBtn').href='https://wa.me/'+String(A.whatsapp).replace(/\D/g,'');
+  renderProjects();startSlides();
+  document.querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el));
+}
+
+/* projeler */
+const tr=$('track'),bar=$('pbar'),fEl=$('filters');
+function renderProjects(){
+  const catName=id=>(D.hizmetler.find(c=>c.id===id)||{ad:id}).ad;
+  const used=[...new Set(D.projeler.map(p=>p.kategori))];
+  fEl.innerHTML=[{id:'all',ad:'Tümü'},...D.hizmetler.filter(c=>used.includes(c.id))].map(c=>`<button type="button" data-f="${esc(c.id)}" aria-pressed="${filter===c.id}">${esc(c.ad)}</button>`).join('');
+  const list=D.projeler.filter(p=>filter==='all'||p.kategori===filter);
+  tr.innerHTML=list.length?list.map(p=>`<button class="card" data-id="${esc(p.id)}">${p.kapak?`<img src="${esc(p.kapak)}" alt="${esc(p.baslik)}" loading="lazy">`:art(p.kategori)}<span class="st${p.durum==='Devam ediyor'?' live':''}">${esc(p.durum)}</span><div class="cap"><small>${esc(catName(p.kategori))}</small><h3>${esc(p.baslik)}</h3><span>${esc([p.konum,p.yil].filter(Boolean).join(' · '))}</span></div></button>`).join(''):'<div class="empty">Bu alanda henüz proje eklenmedi.</div>';
+  tr.scrollLeft=0;upBar();
+}
+function upBar(){const m=tr.scrollWidth-tr.clientWidth,w=m>0?tr.clientWidth/tr.scrollWidth*100:100;bar.style.width=w+'%';bar.style.left=(m>0?tr.scrollLeft/m*(100-w):0)+'%'}
+tr.addEventListener('scroll',upBar,{passive:true});addEventListener('resize',upBar);
+const step=d=>{const c=tr.querySelector('.card');tr.scrollBy({left:d*((c?c.offsetWidth:400)+24),behavior:'smooth'})};
+$('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);
+tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+fEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;filter=b.dataset.f;renderProjects()});
+$('slist').addEventListener('click',e=>{const r=e.target.closest('.srow');if(!r)return;filter=r.dataset.c;renderProjects();$('projeler').scrollIntoView()});
+const dlg=$('pdlg');
+function openProject(p){
+  const catName=(D.hizmetler.find(c=>c.id===p.kategori)||{ad:p.kategori}).ad;
+  const imgs=[p.kapak,...(p.galeri||[])].filter(Boolean);
+  $('pbody').innerHTML=`<div class="ph">${imgs.length?`<img id="pmain" src="${esc(imgs[0])}" alt="${esc(p.baslik)}">`:art(p.kategori)}${imgs.length>1?`<div class="thumbs">${imgs.map((s,i)=>`<button data-s="${esc(s)}" class="${i?'':'on'}" aria-label="Görsel ${i+1}"><img src="${esc(s)}" alt=""></button>`).join('')}</div>`:''}</div><div class="txt"><div class="label">${esc(catName)}</div><h2>${esc(p.baslik)}</h2><dl>${p.konum?`<dt>Konum</dt><dd>${esc(p.konum)}</dd>`:''}${p.yil?`<dt>Yıl</dt><dd>${esc(p.yil)}</dd>`:''}<dt>Durum</dt><dd>${esc(p.durum)}</dd></dl><p class="lead" style="font-size:16px">${esc(p.aciklama)}</p><a class="btn gold" style="margin-top:30px" href="#iletisim" id="pask">Benzer bir proje istiyorum <span class="ar"></span></a></div>`;
+  try{dlg.showModal()}catch(err){dlg.setAttribute('open','')}
+}
+tr.addEventListener('click',e=>{const c=e.target.closest('.card');if(!c)return;const p=D.projeler.find(x=>x.id===c.dataset.id);if(p)openProject(p)});
+$('pclose').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.closest('#pask'))dlg.close();const t=e.target.closest('.thumbs button');if(t){$('pmain').src=t.dataset.s;dlg.querySelectorAll('.thumbs button').forEach(b=>b.classList.toggle('on',b===t))}});
+
+/* hero slayt */
+const ctrl=$('ctrl');let active=[],cur=0,timer;
+function startSlides(){
+  clearTimeout(timer);const all=[...document.querySelectorAll('#slides .slide')];
+  const hv=$('heroVideo');
+  if(hv){active=[all[0]];cur=0;ctrl.innerHTML='';hv.play&&hv.play().catch(()=>{});return}
+  active=all;cur=0;drawCtrl();if(active.length>1)timer=setTimeout(()=>go(1),7000);
+}
+function drawCtrl(){ctrl.innerHTML=active.length>1?active.map((_,i)=>`<button aria-label="Slayt ${i+1}" class="${i===cur?'on':''}"></button>`).join(''):''}
+function go(i){active[cur].classList.remove('on');cur=(i+active.length)%active.length;active[cur].classList.add('on');drawCtrl();clearTimeout(timer);if(active.length>1)timer=setTimeout(()=>go(cur+1),7000)}
+ctrl.addEventListener('click',e=>{const b=e.target.closest('button');if(b)go([...ctrl.children].indexOf(b))});
+
+/* iletişim formu -> sunucu (yoksa WhatsApp) */
+$('cform').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const n=$('fName').value.trim(),t=$('fTel').value.trim(),out=$('sent'),btn=$('fBtn');
+  if(!n||!t){out.textContent='Lütfen ad soyad ve telefon alanlarını doldurun.';out.classList.add('show');return}
+  const body={ad:n,telefon:t,tur:$('fType').value,mesaj:$('fMsg').value.trim(),website:$('fWeb').value};
+  btn.disabled=true;
+  try{
+    const r=await fetch('/api/mesaj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(j.hata||'Gönderilemedi');
+    out.textContent='Teşekkürler, mesajınız bize ulaştı. En kısa sürede sizi arayacağız.';out.classList.add('show');e.target.reset();
+  }catch(err){
+    const txt=`Merhaba, web sitenizden yazıyorum.\nAd soyad: ${n}\nTelefon: ${t}\nProje türü: ${body.tur}\n${body.mesaj}`;
+    const url='https://wa.me/'+String(D.ayarlar.whatsapp).replace(/\D/g,'')+'?text='+encodeURIComponent(txt);
+    out.innerHTML='Mesaj şu an iletilemedi. <a href="'+url+'" target="_blank" rel="noopener"><b>WhatsApp ile gönderin →</b></a>';out.classList.add('show');
+  }finally{btn.disabled=false}
+});
+
+/* menü, header, animasyonlar */
+const hdr=$('hdr'),bg=$('burger'),mob=$('mob'),plx=$('plx');
+const onS=()=>{hdr.classList.toggle('solid',scrollY>60);const r=plx.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)plx.style.transform=`translateY(${(r.top-innerHeight/2)*-.12}px)`};
+addEventListener('scroll',onS,{passive:true});onS();
+const setMob=o=>{mob.classList.toggle('open',o);bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
+bg.onclick=()=>setMob(!mob.classList.contains('open'));
+mob.addEventListener('click',e=>{if(e.target.tagName==='A')setMob(false)});
+$('yr').textContent=new Date().getFullYear();
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.15});
+
+render();
+fetch('/api/site',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{if(d&&d.ayarlar&&Array.isArray(d.projeler)){D=d;render()}}).catch(()=>{});
+
+const intro=$('intro'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const endIntro=()=>{intro.classList.add('out');document.body.classList.remove('intro');setTimeout(()=>document.body.classList.add('loaded'),250);setTimeout(()=>intro.remove(),1000)};
+setTimeout(endIntro,rm?0:1800);
+}
+</script>
+</body>
+</html>

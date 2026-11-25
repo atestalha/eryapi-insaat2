@@ -1,0 +1,70 @@
+{
+  "ayarlar": {
+    "firma": "ER Yapı İnşaat",
+    "yetkili": "Orhan Erdoğan",
+    "telefon": "0545 284 17 84",
+    "whatsapp": "905452841784",
+    "eposta": "eryapiinsaat@outlook.com",
+    "adres": "Meydan Mah. 32211 Sok. Başoğlu İş Merkezi No: 2/8, 42550 Akşehir / Konya",
+    "haritaLink": "https://www.google.com/maps/search/?api=1&query=Ba%C5%9Fo%C4%9Flu+%C4%B0%C5%9F+Merkezi+Meydan+Ak%C5%9Fehir+Konya",
+    "instagram": "https://www.instagram.com/er_yapi_insaat_aksehir/",
+    "facebook": "https://www.facebook.com/eryapiinsaataksehir",
+    "tanitimVideoLink": "https://www.instagram.com/tv/DVqrPajiKXI/"
+  },
+  "metinler": {
+    "heroUst": "Akşehir · Konya · 15 yılı aşkın tecrübe",
+    "heroBaslik1": "Lüks yapılar,",
+    "heroBaslik2": "kalıcı değerler.",
+    "heroAlt": "Lüks yapılara sahip olmak istiyorsanız doğru yerdesiniz. Villadan endüstriyel tesise, tasarımdan anahtar teslime kadar tek muhatabınız ER Yapı.",
+    "hakkimizda": "15 yılı aşkın süredir Akşehir'de, *yaşamınıza değer katan* yapılar inşa ediyoruz. Villa ve malikanelerden endüstriyel tesislere, yönetim binalarından silo ve hangarlara kadar her projenin mimarlığını, mühendisliğini ve müşavirliğini kendi bünyemizde yürütüyor, *anahtar teslim* ediyoruz.",
+    "farkBaslik": "Tasarımdan anahtar teslime, *tek muhatap.*",
+    "farkMetin": "Çizimden şantiyeye her aşama aynı ekipte. Maliyet, takvim ve kalite tek elden yönetilir; siz yalnızca anahtarınızı teslim alırsınız.",
+    "iletisimMetin": "Arsanız, projeniz ya da yalnızca bir fikriniz olsun; ön görüşme için bize ulaşın.",
+    "footerMetin": "Akşehir'de 15 yılı aşkın tecrübeyle; villa, konut, endüstriyel ve ticari yapılarda anahtar teslim çözümler."
+  },
+  "rakamlar": [
+    { "deger": "15+", "etiket": "yıllık sektör tecrübesi" },
+    { "deger": "6", "etiket": "farklı yapı türünde uzmanlık" },
+    { "deger": "4", "etiket": "disiplin tek çatı altında: mimarlık, mühendislik, müşavirlik, uygulama" }
+  ],
+  "hizmetler": [
+    { "id": "villa", "ad": "Villa & Malikane", "aciklama": "Size özel mimari, yüksek tavanlar, geniş açıklıklar ve seçkin malzemeyle villa ve malikaneler." },
+    { "id": "konut", "ad": "Müstakil Konut", "aciklama": "Ailenizin ihtiyacına göre tasarlanan, uzun ömürlü ve enerji verimli müstakil evler." },
+    { "id": "yapsat", "ad": "Yap-Sat Müteahhitliği", "aciklama": "Kat karşılığı ve yap-sat modeliyle konut projeleri; şeffaf süreç, zamanında teslim." },
+    { "id": "endustri", "ad": "Endüstriyel Yapılar", "aciklama": "Fabrika, atölye ve üretim tesisleri; çelik ve betonarme, geniş açıklıklı hacimler." },
+    { "id": "yonetim", "ad": "Yönetim Binaları", "aciklama": "Kurumlar ve şirketler için temsil gücü yüksek, işlevsel idari binalar." },
+    { "id": "depo", "ad": "Silo, Depo & Hangar", "aciklama": "Tarım ve sanayi için hızlı, dayanıklı ve ekonomik silo, depo ve hangar yapıları." }
+  ],
+  "surec": [
+    { "baslik": "Mimarlık", "metin": "İhtiyaç analizi, konsept tasarım, avan ve uygulama projeleri, 3B görselleştirme ve maket." },
+    { "baslik": "Mühendislik", "metin": "Statik, mekanik ve elektrik projeleri; zemine ve kullanıma uygun taşıyıcı sistem." },
+    { "baslik": "Müşavirlik", "metin": "Ruhsat ve resmi süreçlerin takibi; maliyet ve fizibilite danışmanlığı." },
+    { "baslik": "Anahtar teslim", "metin": "Kaba ve ince inşaat, peyzaj ve iskân dahil; yapınızı kullanıma hazır teslim ediyoruz." }
+  ],
+  "gorseller": {
+    "heroVideo": "",
+    "heroSlaytlar": ["img/cephe.jpg", "img/resepsiyon.jpg", "img/toplanti.jpg"],
+    "araBolum": "img/resepsiyon.jpg",
+    "galeri": [
+      { "src": "img/cephe-dikey.jpg", "etiket": "Cephe" },
+      { "src": "img/maket.jpg", "etiket": "Proje maketi" },
+      { "src": "img/toplanti.jpg", "etiket": "Toplantı salonu" },
+      { "src": "img/resepsiyon.jpg", "etiket": "Lobi" },
+      { "src": "img/cephe.jpg", "etiket": "Akşehir ofisi" }
+    ]
+  },
+  "projeler": [
+    { "id": "p1", "baslik": "Palmiye Villaları", "kategori": "villa", "konum": "Akşehir / Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Geniş bahçesi, yüksek giriş holü ve peyzajıyla iki katlı lüks villa projesi.", "kapak": "img/projeler/villa-1.jpg", "galeri": [] },
+    { "id": "p2", "baslik": "Havuzlu Villa", "kategori": "villa", "konum": "Akşehir / Konya", "yil": "2026", "durum": "Devam ediyor", "aciklama": "Tek katlı, havuz çevresinde konumlanan, geniş cam yüzeyli modern villa.", "kapak": "img/projeler/villa-2.jpg", "galeri": [] },
+    { "id": "p3", "baslik": "Bahçeli Müstakil Konut", "kategori": "konut", "konum": "Akşehir / Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Çift garajlı, tek aile için tasarlanmış enerji verimli müstakil ev.", "kapak": "img/projeler/konut-1.jpg", "galeri": [] },
+    { "id": "p4", "baslik": "Beyaz Konak", "kategori": "konut", "konum": "Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Klasik çizgileri modern detaylarla buluşturan iki katlı müstakil konut.", "kapak": "img/projeler/konut-2.jpg", "galeri": [] },
+    { "id": "p5", "baslik": "Meydan Rezidans", "kategori": "yapsat", "konum": "Akşehir / Konya", "yil": "2026", "durum": "Devam ediyor", "aciklama": "Kat karşılığı yap-sat modeliyle, cam korkuluklu geniş balkonlara sahip konut projesi.", "kapak": "img/projeler/yapsat-1.jpg", "galeri": [] },
+    { "id": "p6", "baslik": "Yeşil Teras Konutları", "kategori": "yapsat", "konum": "Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Her katta bitkilendirilmiş teraslarıyla çok katlı konut projesi.", "kapak": "img/projeler/yapsat-2.jpg", "galeri": [] },
+    { "id": "p7", "baslik": "Üretim Tesisi", "kategori": "endustri", "konum": "Akşehir OSB / Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Çelik taşıyıcılı, idari bölümlü ve geniş açıklıklı üretim tesisi.", "kapak": "img/projeler/endustri-1.jpg", "galeri": [] },
+    { "id": "p8", "baslik": "Lojistik Deposu", "kategori": "endustri", "konum": "Konya", "yil": "2023", "durum": "Tamamlandı", "aciklama": "Endüstriyel kapılı, havalandırma panjurlu çelik depo yapısı.", "kapak": "img/projeler/endustri-2.jpg", "galeri": [] },
+    { "id": "p9", "baslik": "Kurumsal Yönetim Binası", "kategori": "yonetim", "konum": "Konya", "yil": "2024", "durum": "Tamamlandı", "aciklama": "Cam cepheli giriş bölümü ve ofis katlarıyla idari bina.", "kapak": "img/projeler/yonetim-1.jpg", "galeri": [] },
+    { "id": "p10", "baslik": "Cam Cepheli Ofis Bloğu", "kategori": "yonetim", "konum": "Konya", "yil": "2025", "durum": "Devam ediyor", "aciklama": "Giydirme cepheli, aydınlatmalı saçaklı modern ofis bloğu.", "kapak": "img/projeler/yonetim-2.jpg", "galeri": [] },
+    { "id": "p11", "baslik": "Çelik Silo Tesisi", "kategori": "depo", "konum": "Akşehir / Konya", "yil": "2025", "durum": "Tamamlandı", "aciklama": "Tarımsal depolama için paslanmaz çelik silolar ve yardımcı yapılar.", "kapak": "img/projeler/depo-1.jpg", "galeri": [] }
+  ],
+  "mesajlar": []
+}

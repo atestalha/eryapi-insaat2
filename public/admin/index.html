@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Yönetim | ER Yapı İnşaat</title>
+<link rel="icon" href="/img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<div id="boot" class="center"><span class="spin"></span></div>
+
+<div id="login" class="center" hidden>
+  <form id="loginForm" class="login">
+    <img src="/img/logo-dark.png" alt="ER Yapı İnşaat" class="login-logo">
+    <p class="muted small">Yönetim paneli</p>
+    <label class="field"><span>Şifre</span><input id="pw" type="password" autocomplete="current-password" required></label>
+    <p id="loginErr" class="err" hidden></p>
+    <button class="btn dark block" type="submit">Giriş yap</button>
+    <a href="/" class="back">← Siteye dön</a>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header class="top">
+    <div class="top-in">
+      <a href="#genel" class="brand"><img src="/img/logo-dark.png" alt="ER Yapı İnşaat"><span>Yönetim</span></a>
+      <div class="top-actions">
+        <a href="/" target="_blank" rel="noopener" class="btn ghost">Siteyi gör</a>
+        <button id="logout" class="btn dark">Çıkış</button>
+      </div>
+    </div>
+    <nav id="tabs" class="tabs"></nav>
+  </header>
+  <main id="view" class="main"></main>
+</div>
+
+<div id="modal" class="modal" hidden><div class="modal-box" id="modalBox"></div></div>
+<div id="toasts" class="toasts"></div>
+
+<script src="/admin/blob-client.js"></script>
+<script src="/admin/admin.js"></script>
+</body>
+</html>
